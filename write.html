@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ระบบจัดการบทความ - IHD TAXI</title>
+    <style>
+        body { font-family: 'Tahoma', sans-serif; background-color: #f4f6f9; margin: 0; padding: 20px; }
+        .container { max-width: 700px; margin: 0 auto; background: #fff; padding: 25px; border-radius: 12px; box-shadow: 0 4px 10px rgba(0,0,0,0.1); }
+        h2 { text-align: center; color: #1e3c72; }
+        label { font-weight: bold; display: block; margin-top: 15px; margin-bottom: 5px; }
+        input, textarea { width: 100%; padding: 10px; border: 1px solid #ccc; border-radius: 6px; box-sizing: border-box; font-size: 15px; }
+        textarea { height: 180px; resize: vertical; }
+        button { width: 100%; background: #007bff; color: #fff; border: none; padding: 12px; border-radius: 6px; font-size: 16px; font-weight: bold; margin-top: 20px; cursor: pointer; }
+        button:hover { background: #0056b3; }
+        #status { margin-top: 15px; text-align: center; font-weight: bold; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>เขียนบทความใหม่ (IHD TAXI)</h2>
+        
+        <label>GitHub Personal Access Token:</label>
+        <input type="password" id="token" placeholder="วาง Token github_pat_... ที่คัดลอกมา">
+
+        <label>หัวข้อบทความ:</label>
+        <input type="text" id="title" placeholder="เช่น บริการรถเหมาไปพัทยา ราคาพิเศษ">
+
+        <label>เนื้อหาบทความ:</label>
+        <textarea id="content" placeholder="พิมพ์รายละเอียดบทความที่นี่..."></textarea>
+
+        <button onclick="publishPost()">โพสต์บทความลงเว็บไซต์</button>
+        <div id="status"></div>
+    </div>
+
+    <script>
+        async function publishPost() {
+            const token = document.getElementById('token').value.trim();
+            const title = document.getElementById('title').value.trim();
+            const content = document.getElementById('content').value.trim();
+            const status = document.getElementById('status');
+
+            if (!token || !title || !content) {
+                status.style.color = "red";
+                status.innerText = "กรุณากรอกข้อมูลให้ครบทุกช่อง";
+                return;
+            }
+
+            status.style.color = "blue";
+            status.innerText = "กำลังบันทึกบทความ...";
+
+            const fileName = `article-${Date.now()}.html`;
+            const articleHtml = `<!DOCTYPE html><html lang="th"><head><meta charset="UTF-8"><title>${title}</title><style>body{font-family:sans-serif;padding:20px;max-width:800px;margin:0 auto;line-height:1.6;}</style></head><body><h1>${title}</h1><div>${content.replace(/\n/g, '<br>')}</div><hr><a href="/">กลับหน้าหลัก</a></body></html>`;
+
+            const repoOwner = "mongkol2010nk-dev";
+            const repoName = "mongkolAAA";
+            const url = `https://api.github.com/repos/${repoOwner}/${repoName}/contents/${fileName}`;
+
+            try {
+                const response = await fetch(url, {
+                    method: "PUT",
+                    headers: {
+                        "Authorization": `token ${token}`,
+                        "Content-Type": "application/json"
+                    },
+                    body: JSON.stringify({
+                        message: `Add new article: ${title}`,
+                        content: btoa(unescape(encodeURIComponent(articleHtml)))
+                    })
+                });
+
+                if (response.ok) {
+                    status.style.color = "green";
+                    status.innerText = "โพสต์บทความเรียบร้อยแล้ว!";
+                    document.getElementById('title').value = '';
+                    document.getElementById('content').value = '';
+                } else {
+                    const errData = await response.json();
+                    status.style.color = "red";
+                    status.innerText = "เกิดข้อผิดพลาด: " + (errData.message || "Token ไม่ถูกต้อง");
+                }
+            } catch (err) {
+                status.style.color = "red";
+                status.innerText = "การเชื่อมต่อล้มเหลว";
+            }
+        }
+    </script>
+</body>
+</html>
