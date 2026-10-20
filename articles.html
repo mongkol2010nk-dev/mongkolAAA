@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>บทความทั้งหมด - IHD TAXI</title>
+    <style>
+        body { font-family: 'Tahoma', sans-serif; background-color: #f4f6f9; margin: 0; padding: 20px; }
+        .container { max-width: 800px; margin: 0 auto; background: #fff; padding: 25px; border-radius: 12px; box-shadow: 0 4px 10px rgba(0,0,0,0.1); }
+        h1 { color: #1e3c72; text-align: center; }
+        .btn-write { display: inline-block; background: #28a745; color: #fff; text-decoration: none; padding: 10px 20px; border-radius: 6px; font-weight: bold; margin-bottom: 20px; }
+        .article-card { border-bottom: 1px solid #eee; padding: 15px 0; }
+        .article-card h3 { margin: 0 0 10px 0; }
+        .article-card a { color: #007bff; text-decoration: none; font-size: 18px; font-weight: bold; }
+        .article-card a:hover { text-decoration: underline; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>บทความทั้งหมด (IHD TAXI)</h1>
+        <a href="/write.html" class="btn-write">+ เขียนบทความใหม่</a>
+        <hr>
+        <div id="article-list">กำลังโหลดบทความ...</div>
+    </div>
+
+    <script>
+        async function loadArticles() {
+            const listDiv = document.getElementById('article-list');
+            try {
+                const response = await fetch('https://api.github.com/repos/mongkol2010nk-dev/mongkolAAA/contents/');
+                const files = await response.json();
+                
+                const articleFiles = files.filter(file => file.name.startsWith('article-') && file.name.endsWith('.html'));
+                
+                if (articleFiles.length === 0) {
+                    listDiv.innerHTML = '<p>ยังไม่มีบทความในขณะนี้</p>';
+                    return;
+                }
+
+                let html = '';
+                articleFiles.reverse().forEach(file => {
+                    const cleanName = file.name.replace('.html', '');
+                    html += `
+                        <div class="article-card">
+                            <a href="/${file.name}">${cleanName}</a>
+                        </div>
+                    `;
+                });
+                listDiv.innerHTML = html;
+            } catch (err) {
+                listDiv.innerHTML = '<p>ไม่สามารถโหลดบทความได้</p>';
+            }
+        }
+        loadArticles();
+    </script>
+</body>
+</html>
