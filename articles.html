@@ -3,24 +3,123 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>บทความทั้งหมด - IHD TAXI</title>
+    <title>บทความ IHD TAXI</title>
     <style>
-        body { font-family: 'Tahoma', sans-serif; background-color: #f4f6f9; margin: 0; padding: 20px; }
-        .container { max-width: 800px; margin: 0 auto; background: #fff; padding: 25px; border-radius: 12px; box-shadow: 0 4px 10px rgba(0,0,0,0.1); }
-        h1 { color: #1e3c72; text-align: center; }
-        .btn-write { display: inline-block; background: #28a745; color: #fff; text-decoration: none; padding: 10px 20px; border-radius: 6px; font-weight: bold; margin-bottom: 20px; }
-        .article-card { border-bottom: 1px solid #eee; padding: 15px 0; }
-        .article-card h3 { margin: 0 0 10px 0; }
-        .article-card a { color: #007bff; text-decoration: none; font-size: 18px; font-weight: bold; }
-        .article-card a:hover { text-decoration: underline; }
+        body { 
+            font-family: 'Tahoma', sans-serif; 
+            background: linear-gradient(135deg, #134e32, #1b6b44); 
+            margin: 0; 
+            padding: 15px; 
+            min-height: 100vh;
+        }
+        .container { 
+            max-width: 600px; 
+            margin: 0 auto; 
+            background: #ffffff; 
+            padding: 20px; 
+            border-radius: 20px; 
+            box-shadow: 0 8px 20px rgba(0,0,0,0.2); 
+        }
+        
+        .menu-bar {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 20px;
+            align-items: center;
+        }
+        .btn-menu {
+            background: #e8f5e9;
+            color: #134e32;
+            text-decoration: none;
+            padding: 12px 20px;
+            border-radius: 30px;
+            font-weight: bold;
+            font-size: 15px;
+            border: 1px solid #c8e6c9;
+            text-align: center;
+        }
+        .btn-menu.active {
+            background: #ffffff;
+            border: 2px solid #134e32;
+        }
+        .btn-write {
+            background: #1b6b44;
+            color: #ffffff;
+            text-decoration: none;
+            padding: 12px 20px;
+            border-radius: 30px;
+            font-weight: bold;
+            font-size: 15px;
+            flex-grow: 1;
+            text-align: center;
+            box-shadow: 0 4px 10px rgba(27,107,68,0.3);
+        }
+
+        .article-card { 
+            background: #f8f9fa;
+            border: 1px solid #e0e0e0;
+            border-radius: 16px; 
+            overflow: hidden;
+            margin-bottom: 20px; 
+            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+        }
+        .article-img-container {
+            width: 100%;
+            height: 180px;
+            background: #e2f0d9;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+        }
+        .article-img-container img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        .article-content {
+            padding: 15px 20px;
+        }
+        .article-date {
+            font-size: 12px;
+            color: #888;
+            margin-bottom: 5px;
+        }
+        .article-title-link { 
+            color: #134e32; 
+            text-decoration: none; 
+            font-size: 18px; 
+            font-weight: bold; 
+            display: block;
+            margin-bottom: 8px;
+        }
+        .article-title-link:hover { 
+            text-decoration: underline; 
+        }
+        .article-snippet {
+            font-size: 14px;
+            color: #555;
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+        }
+        .loading {
+            text-align: center;
+            color: #666;
+            padding: 30px;
+        }
     </style>
 </head>
 <body>
     <div class="container">
-        <h1>บทความทั้งหมด (IHD TAXI)</h1>
-        <a href="/write.html" class="btn-write">+ เขียนบทความใหม่</a>
-        <hr>
-        <div id="article-list">กำลังโหลดบทความ...</div>
+        <div class="menu-bar">
+            <a href="/" class="btn-menu">หน้าแรก</a>
+            <a href="/articles.html" class="btn-menu active">บทความ</a>
+            <a href="/write.html" class="btn-write">+ เขียนบทความ</a>
+        </div>
+
+        <div id="article-list" class="loading">กำลังโหลดบทความ...</div>
     </div>
 
     <script>
@@ -33,22 +132,29 @@
                 const articleFiles = files.filter(file => file.name.startsWith('article-') && file.name.endsWith('.html'));
                 
                 if (articleFiles.length === 0) {
-                    listDiv.innerHTML = '<p>ยังไม่มีบทความในขณะนี้</p>';
+                    listDiv.innerHTML = '<p style="text-align:center; color:#666;">ยังไม่มีบทความในขณะนี้</p>';
                     return;
                 }
 
                 let html = '';
                 articleFiles.reverse().forEach(file => {
-                    const cleanName = file.name.replace('.html', '');
+                    const cleanName = file.name.replace('article-', '').replace('.html', '').replace(/-/g, ' ');
                     html += `
                         <div class="article-card">
-                            <a href="/${file.name}">${cleanName}</a>
+                            <div class="article-img-container">
+                                <img src="/1791705126020.jpg" alt="IHD TAXI">
+                            </div>
+                            <div class="article-content">
+                                <div class="article-date">IHD TAXI บริการรถเหมาทั่วไทย</div>
+                                <a href="/${file.name}" class="article-title-link">${cleanName}</a>
+                                <div class="article-snippet">คลิกเพื่ออ่านรายละเอียดการให้บริการรถเหมา ท่องเที่ยว และรับ-ส่งสนามบินทั่วไทยตลอด 24 ชั่วโมง</div>
+                            </div>
                         </div>
                     `;
                 });
                 listDiv.innerHTML = html;
             } catch (err) {
-                listDiv.innerHTML = '<p>ไม่สามารถโหลดบทความได้</p>';
+                listDiv.innerHTML = '<p style="text-align:center; color:red;">ไม่สามารถโหลดบทความได้</p>';
             }
         }
         loadArticles();
