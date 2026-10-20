@@ -1,163 +1,189 @@
 <!DOCTYPE html>
 <html lang="th">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>บทความ IHD TAXI</title>
-    <style>
-        body { 
-            font-family: 'Tahoma', sans-serif; 
-            background: linear-gradient(135deg, #134e32, #1b6b44); 
-            margin: 0; 
-            padding: 15px; 
-            min-height: 100vh;
-        }
-        .container { 
-            max-width: 600px; 
-            margin: 0 auto; 
-            background: #ffffff; 
-            padding: 20px; 
-            border-radius: 20px; 
-            box-shadow: 0 8px 20px rgba(0,0,0,0.2); 
-        }
-        
-        .menu-bar {
-            display: flex;
-            gap: 10px;
-            margin-bottom: 20px;
-            align-items: center;
-        }
-        .btn-menu {
-            background: #e8f5e9;
-            color: #134e32;
-            text-decoration: none;
-            padding: 12px 20px;
-            border-radius: 30px;
-            font-weight: bold;
-            font-size: 15px;
-            border: 1px solid #c8e6c9;
-            text-align: center;
-        }
-        .btn-menu.active {
-            background: #ffffff;
-            border: 2px solid #134e32;
-        }
-        .btn-write {
-            background: #1b6b44;
-            color: #ffffff;
-            text-decoration: none;
-            padding: 12px 20px;
-            border-radius: 30px;
-            font-weight: bold;
-            font-size: 15px;
-            flex-grow: 1;
-            text-align: center;
-            box-shadow: 0 4px 10px rgba(27,107,68,0.3);
-        }
-
-        .article-card { 
-            background: #f8f9fa;
-            border: 1px solid #e0e0e0;
-            border-radius: 16px; 
-            overflow: hidden;
-            margin-bottom: 20px; 
-            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
-        }
-        .article-img-container {
-            width: 100%;
-            height: 180px;
-            background: #e2f0d9;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            overflow: hidden;
-        }
-        .article-img-container img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
-        .article-content {
-            padding: 15px 20px;
-        }
-        .article-date {
-            font-size: 12px;
-            color: #888;
-            margin-bottom: 5px;
-        }
-        .article-title-link { 
-            color: #134e32; 
-            text-decoration: none; 
-            font-size: 18px; 
-            font-weight: bold; 
-            display: block;
-            margin-bottom: 8px;
-        }
-        .article-title-link:hover { 
-            text-decoration: underline; 
-        }
-        .article-snippet {
-            font-size: 14px;
-            color: #555;
-            display: -webkit-box;
-            -webkit-line-clamp: 2;
-            -webkit-box-orient: vertical;
-            overflow: hidden;
-        }
-        .loading {
-            text-align: center;
-            color: #666;
-            padding: 30px;
-        }
-    </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#047857">
+<title>บทความ - IHD TAXI บริการรถเหมาทั่วไทย</title>
+<meta name="description" content="บทความและสาระน่ารู้จาก IHD TAXI เคล็ดลับการเดินทาง รับส่งสนามบิน แนะนำที่เที่ยวทั่วไทย อัปเดตทุกวัน">
+<link rel="icon" href="https://mongkol20010.wordpress.com/wp-content/uploads/2025/10/3004.jpg?w=1024">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<link href="https://fonts.googleapis.com/css2?family=Sarabun:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{--ink:#064e3b;--g:#047857;--g2:#10b981;--teal:#0d9488;--mut:#3f6b5f}
+*{box-sizing:border-box;margin:0;padding:0}html{scroll-behavior:smooth}
+body{font-family:'Sarabun',sans-serif;font-size:18px;color:var(--ink);line-height:1.75;background:radial-gradient(700px 420px at 0% 0%,rgba(16,185,129,.28),transparent 70%),radial-gradient(700px 500px at 100% 40%,rgba(45,212,191,.25),transparent 70%),linear-gradient(180deg,#ecfdf5,#f0fdfa)}
+a{color:inherit;text-decoration:none}img{max-width:100%;display:block}button{font:inherit;cursor:pointer;border:0}
+.wrap{max-width:900px;margin:0 auto;padding:0 16px}
+.glass{background:linear-gradient(135deg,rgba(255,255,255,.8),rgba(255,255,255,.5));backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border:1px solid rgba(255,255,255,.9);box-shadow:0 8px 26px -14px rgba(5,150,105,.45)}
+header{position:sticky;top:0;z-index:50;border-radius:0 0 18px 18px}
+.hd{display:flex;align-items:center;justify-content:space-between;height:64px}
+.brand{display:flex;align-items:center;gap:10px;font-weight:800;font-size:1.2rem}.brand img{width:42px;height:42px;border-radius:50%;object-fit:cover;border:2px solid #fff}.brand i{font-style:normal;color:var(--teal)}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;font-weight:700;padding:10px 18px;border-radius:14px;color:#fff;background:linear-gradient(135deg,#10b981,#047857)}
+.btn.w{background:#25d366}.btn.l{background:#06c755}
+h1{font-size:1.9rem;font-weight:800;line-height:1.3;margin:28px 0 6px}.lead{color:var(--mut);margin-bottom:22px}
+.list{display:grid;gap:14px;padding-bottom:60px}
+.item{display:grid;border-radius:20px;overflow:hidden}@media(min-width:640px){.item{grid-template-columns:240px 1fr}}
+.item img{width:100%;height:100%;object-fit:cover;min-height:150px;background:#6ee7b7}
+.item div{padding:16px}.item small{color:var(--teal);font-weight:600}.item h2{font-size:1.2rem;line-height:1.35;margin:2px 0 6px}.item p{font-size:.95rem;color:var(--mut)}
+.more{color:var(--g);font-weight:700;font-size:.95rem}
+article{padding:20px;border-radius:22px;margin:20px 0 40px}
+article .cv{border-radius:16px;overflow:hidden;margin-bottom:16px;max-height:340px}article .cv img{width:100%;object-fit:cover}
+article h1{margin-top:6px}article h2{font-size:1.3rem;margin:22px 0 6px;color:var(--g)}article p{margin-bottom:12px}article ul{margin:0 0 12px 1.3em}
+.meta{color:var(--teal);font-weight:600;font-size:.92rem}
+.act{display:flex;flex-wrap:wrap;gap:10px;margin-top:22px}
+.back{display:inline-block;margin-top:20px;color:var(--g);font-weight:700}
+#wr{display:none;padding-bottom:60px}
+.box{border-radius:18px;padding:16px;margin:14px 0}
+.box h2{font-size:1.15rem;margin-bottom:6px}
+label{display:block;font-weight:700;margin:10px 0 2px;font-size:.92rem}
+input,textarea{width:100%;font:inherit;font-size:16px;padding:10px;border:1px solid #a7f3d0;border-radius:10px;background:#fff;color:var(--ink)}textarea{min-height:220px}
+.row{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+#go{width:100%;margin-top:14px;padding:13px 18px}#go:disabled{opacity:.6}
+.t{font-size:.88rem;color:var(--mut)}
+#st{margin-top:12px;padding:12px;border-radius:12px;display:none;font-weight:600}.okk{background:#d1fae5;color:#065f46}.bad{background:#fee2e2;color:#991b1b}.wt{background:#fef9c3;color:#854d0e}
+#st a{color:var(--g);font-weight:700;text-decoration:underline}
+.au{display:flex;align-items:center;gap:10px;margin:6px 0 12px}.au img,.pv{width:46px;height:46px;min-height:0;border-radius:50%;object-fit:cover;border:2px solid #fff;box-shadow:0 4px 12px -4px rgba(6,78,59,.5);background:#6ee7b7}
+.au .nm b{font-size:.95rem;line-height:1.2}.item .au{padding:0;margin:4px 0 6px}.item .au img{width:34px;height:34px}
+</style>
 </head>
 <body>
-    <div class="container">
-        <div class="menu-bar">
-            <a href="/" class="btn-menu">หน้าแรก</a>
-            <a href="/articles.html" class="btn-menu active">บทความ</a>
-            <a href="/write.html" class="btn-write">+ เขียนบทความ</a>
-        </div>
+<header class="glass"><div class="wrap hd"><a href="index.html" class="brand"><img src="https://mongkol20010.wordpress.com/wp-content/uploads/2025/10/3004.jpg?w=1024" alt="โลโก้ IHD TAXI">IHD <i>TAXI</i></a><a href="index.html" class="btn"><i class="fa-solid fa-house"></i>หน้าแรก</a></div></header>
 
-        <div id="article-list" class="loading">กำลังโหลดบทความ...</div>
-    </div>
+<main class="wrap" id="app"></main>
 
-    <script>
-        async function loadArticles() {
-            const listDiv = document.getElementById('article-list');
-            try {
-                const response = await fetch('https://api.github.com/repos/mongkol2010nk-dev/mongkolAAA/contents/');
-                const files = await response.json();
-                
-                const articleFiles = files.filter(file => file.name.startsWith('article-') && file.name.endsWith('.html'));
-                
-                if (articleFiles.length === 0) {
-                    listDiv.innerHTML = '<p style="text-align:center; color:#666;">ยังไม่มีบทความในขณะนี้</p>';
-                    return;
-                }
+<!-- ===== หน้าเขียนบทความ: เปิดที่ articles.html#write ===== -->
+<main class="wrap" id="wr">
+<h1>เขียนและเผยแพร่บทความ</h1>
+<p class="t">กรอกข้อมูลแล้วกด "เผยแพร่" บทความจะถูกบันทึกขึ้นเว็บไซต์ให้เอง โพสต์ได้ทุกวัน ไม่จำกัดจำนวน</p>
+<div class="box glass"><h2>ตั้งค่าครั้งแรก (บันทึกในเครื่องคุณเท่านั้น)</h2>
+<div class="row"><div><label for="o">ชื่อบัญชี GitHub</label><input id="o"></div><div><label for="r">ชื่อ Repository</label><input id="r"></div></div>
+<div class="row"><div><label for="b">Branch</label><input id="b" value="main"></div><div><label for="fp">ชื่อไฟล์นี้</label><input id="fp" value="articles.html"></div></div>
+<label for="k">GitHub Token</label><input id="k" type="password" autocomplete="off" placeholder="github_pat_...">
+<p class="t">วิธีทำ Token: GitHub → Settings → Developer settings → Fine-grained tokens → Generate new token เลือก Repository นี้อย่างเดียว ตั้งสิทธิ์ Contents เป็น Read and write แล้วคัดลอกมาวาง ห้ามส่ง Token ให้ผู้อื่น</p></div>
+<div class="box glass"><h2>บทความใหม่</h2>
+<label for="t">หัวข้อบทความ *</label><input id="t">
+<div class="row"><div><label for="g">หมวดหมู่</label><input id="g" placeholder="เช่น เที่ยวทั่วไทย"></div><div><label for="d">วันที่</label><input id="d" type="date"></div></div>
+<label for="s">คำโปรยสั้นๆ</label><input id="s" placeholder="สรุป 1 บรรทัด">
+<div class="row"><div><label for="an">ชื่อผู้เขียน</label><input id="an" placeholder="เช่น มงคล"></div><div><label for="av">รูปโปรไฟล์ผู้เขียน</label><input id="av" type="file" accept="image/*"></div></div>
+<div class="au"><img id="pv" class="pv" alt="" style="display:none"><span class="t" id="pvt">ยังไม่มีรูปโปรไฟล์ เลือกไฟล์เพื่อใส่รูป</span></div>
+<label class="t" style="font-weight:400"><input type="checkbox" id="na" style="width:auto;margin-right:6px">ไม่ใส่รูปโปรไฟล์ในบทความนี้</label>
+<label for="f">รูปปก (ไม่ใส่ก็ได้)</label><input id="f" type="file" accept="image/*">
+<label for="u">หรือใส่ลิงก์รูปปก</label><input id="u" type="url" placeholder="https://...">
+<label for="x">เนื้อหา *</label><textarea id="x" placeholder="เว้นบรรทัดว่างเพื่อแยกย่อหน้า&#10;ขึ้นต้นด้วย ## คือหัวข้อย่อย&#10;ขึ้นต้นด้วย - คือรายการ"></textarea>
+<button id="go" class="btn">เผยแพร่บทความ</button><div id="st" role="status"></div></div>
+<a class="back" href="#"><i class="fa-solid fa-chevron-left"></i> กลับไปหน้าบทความ</a>
+</main>
 
-                let html = '';
-                articleFiles.reverse().forEach(file => {
-                    const cleanName = file.name.replace('article-', '').replace('.html', '').replace(/-/g, ' ');
-                    html += `
-                        <div class="article-card">
-                            <div class="article-img-container">
-                                <img src="/1791705126020.jpg" alt="IHD TAXI">
-                            </div>
-                            <div class="article-content">
-                                <div class="article-date">IHD TAXI บริการรถเหมาทั่วไทย</div>
-                                <a href="/${file.name}" class="article-title-link">${cleanName}</a>
-                                <div class="article-snippet">คลิกเพื่ออ่านรายละเอียดการให้บริการรถเหมา ท่องเที่ยว และรับ-ส่งสนามบินทั่วไทยตลอด 24 ชั่วโมง</div>
-                            </div>
-                        </div>
-                    `;
-                });
-                listDiv.innerHTML = html;
-            } catch (err) {
-                listDiv.innerHTML = '<p style="text-align:center; color:red;">ไม่สามารถโหลดบทความได้</p>';
-            }
-        }
-        loadArticles();
-    </script>
+<!-- ===== ฐานข้อมูลบทความ (ระบบเพิ่มบทความใหม่ต่อจากเครื่องหมายด้านล่างโดยอัตโนมัติ ห้ามลบบรรทัดเครื่องหมาย) ===== -->
+<script id="data">
+const ARTICLES=[
+/*ARTICLES_START*/
+{id:"2026-10-20-airport-tips",date:"2026-10-20",tag:"รับส่งสนามบิน",title:"เคล็ดลับรับส่งสนามบิน ไม่ตกเครื่องแน่นอน",summary:"วิธีวางแผนเวลาและแจ้งรายละเอียดกับคนขับ เพื่อให้ถึงสนามบินทันเที่ยวบินอย่างสบายใจ",img:"https://mongkol20010.wordpress.com/wp-content/uploads/2025/10/1777.jpg?w=1024",
+body:`การเดินทางไปสนามบินให้ทันเวลาเริ่มจากการวางแผนที่ดี ไม่ว่าจะเป็นสุวรรณภูมิหรือดอนเมือง สิ่งสำคัญคือเผื่อเวลาให้เพียงพอ
+
+## เผื่อเวลาให้พอ
+- เที่ยวบินในประเทศ ควรถึงสนามบินอย่างน้อย 2 ชั่วโมงก่อนเวลาเครื่องออก
+- เที่ยวบินระหว่างประเทศ ควรถึงอย่างน้อย 3 ชั่วโมงก่อนเวลาเครื่องออก
+- ช่วงเช้าและเย็นของวันทำงาน รถมักติด ควรเผื่อเวลาเพิ่ม
+
+## แจ้งข้อมูลตอนจอง
+บอกหมายเลขเที่ยวบิน จุดรับ จำนวนผู้โดยสาร และจำนวนกระเป๋า เพื่อให้เราเลือกรถได้เหมาะสม และติดตามเวลาลงจริงเมื่อเที่ยวบินล่าช้า
+
+## จองล่วงหน้าดีที่สุด
+แนะนำจองล่วงหน้าอย่างน้อย 1 วัน โดยเฉพาะช่วงเทศกาล หากเร่งด่วนโทรหาเราได้ตลอด 24 ชั่วโมง`},
+{id:"2026-10-19-huahin-day-trip",date:"2026-10-19",tag:"เที่ยวทั่วไทย",title:"เที่ยวหัวหินวันเดียว เหมารถไป-กลับ สบายทั้งวัน",summary:"แนะนำเส้นทางเที่ยวหัวหินแบบไปเช้าเย็นกลับ ทั้งทะเล ตลาดโต้รุ่ง ไร่องุ่น และคาเฟ่",img:"https://mongkol20010.wordpress.com/wp-content/uploads/2025/10/2776-2.jpg?w=1024",
+body:`หัวหินอยู่ห่างจากกรุงเทพฯ ใช้เวลาเดินทางประมาณ 3 ชั่วโมง การเหมารถทำให้เที่ยวได้หลายจุดโดยไม่ต้องกังวลเรื่องขับรถและที่จอดรถ
+
+## จุดแนะนำ
+- หาดหัวหิน ทะเลสงบ เหมาะพักผ่อน
+- วัดห้วยมงคล และพระราชวังไกลกังวล
+- ไร่องุ่นและคาเฟ่ ถ่ายรูปสวย
+- ตลาดโต้รุ่งหัวหิน อาหารทะเลสดและของฝาก
+
+## วางแผนอย่างไรดี
+ออกเดินทางแต่เช้าเพื่อหลีกเลี่ยงรถติด เที่ยวในช่วงสาย พักทานอาหารกลางวัน แล้วปิดท้ายด้วยตลาดโต้รุ่งก่อนเดินทางกลับ`},
+{id:"2026-10-18-travel-with-pets",date:"2026-10-18",tag:"สัตว์เลี้ยง",title:"เดินทางไกลกับสัตว์เลี้ยง ต้องเตรียมอะไรบ้าง",summary:"ข้อควรเตรียมก่อนพาน้องหมาน้องแมวเดินทาง เพื่อให้ปลอดภัยและไม่เครียดตลอดทาง",img:"https://mongkol20010.wordpress.com/wp-content/uploads/2025/10/2920.jpg?w=1024",
+body:`การพาสัตว์เลี้ยงเดินทางไกลต้องเตรียมตัวล่วงหน้าเล็กน้อย เพื่อให้ทั้งเจ้าของและน้องสบายใจ
+
+## สิ่งที่ควรเตรียม
+- กรงหรือกระเป๋าสำหรับเดินทาง ขนาดพอดีตัว
+- น้ำดื่มและชามสำหรับพักระหว่างทาง
+- ผ้าหรือของใช้คุ้นเคย ช่วยให้น้องคลายเครียด
+
+## แจ้งตอนจอง
+บอกชนิดและขนาดของสัตว์เลี้ยงให้ทีมงานทราบ เพื่อเลือกรถและวางแผนจุดแวะพักให้เหมาะสม คนขับของเราจะขับนุ่มนวลเพื่อให้น้องไม่เครียด`}
+];
+</script>
+
+<script>
+const $=id=>document.getElementById(id);
+const esc=s=>String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+const auth=a=>(a.author||a.avatar)?`<div class="au">${a.avatar?`<img src="${esc(a.avatar)}" alt="${esc(a.author||'ผู้เขียน')}" loading="lazy">`:''}<span class="nm"><b>${esc(a.author||'IHD TAXI')}</b></span></div>`:'';
+const fd=d=>new Date(d).toLocaleDateString('th-TH',{dateStyle:'long'});
+const all=[...ARTICLES].sort((a,b)=>b.date.localeCompare(a.date)||b.id.localeCompare(a.id));
+function body(t){return t.split(/\n\n+/).map(b=>{b=b.trim();if(b.startsWith('## '))return `<h2>${esc(b.slice(3))}</h2>`;
+ const L=b.split('\n');if(L.every(x=>x.startsWith('- ')))return `<ul>${L.map(x=>`<li>${esc(x.slice(2))}</li>`).join('')}</ul>`;
+ const i=L.findIndex(x=>x.startsWith('- '));if(i>0&&L.slice(i).every(x=>x.startsWith('- ')))return `<p>${esc(L.slice(0,i).join(' '))}</p><ul>${L.slice(i).map(x=>`<li>${esc(x.slice(2))}</li>`).join('')}</ul>`;
+ return `<p>${esc(b)}</p>`}).join('')}
+function route(){const h=decodeURIComponent(location.hash.slice(1));const a=all.find(x=>x.id===h);window.scrollTo(0,0);
+ const w=h==='write';$('wr').style.display=w?'block':'none';$('app').style.display=w?'none':'block';
+ if(w){document.title='เขียนบทความ - IHD TAXI';return}
+ if(a){document.title=a.title+' - IHD TAXI';const u=encodeURIComponent(a.title+' '+location.href);
+  $('app').innerHTML=`<a class="back" href="#"><i class="fa-solid fa-chevron-left"></i> กลับไปหน้าบทความ</a><article class="glass">${a.img?`<div class="cv"><img src="${esc(a.img)}" alt="${esc(a.title)}"></div>`:''}<div class="meta">${esc(a.tag)} · ${fd(a.date)}</div><h1>${esc(a.title)}</h1>${auth(a)}${body(a.body)}
+  <div class="act"><a class="btn" href="tel:+66636385818"><i class="fa-solid fa-phone"></i>โทรจองรถ</a><a class="btn w" target="_blank" rel="noopener" href="https://wa.me/?text=${u}"><i class="fa-brands fa-whatsapp"></i>แชร์ WhatsApp</a><a class="btn l" target="_blank" rel="noopener" href="https://line.me/R/msg/text/?${u}"><i class="fa-brands fa-line"></i>แชร์ LINE</a></div></article>`}
+ else{document.title='บทความ - IHD TAXI บริการรถเหมาทั่วไทย';
+  $('app').innerHTML=`<h1>บทความและสาระน่ารู้</h1><p class="lead">เคล็ดลับการเดินทาง แนะนำที่เที่ยว อัปเดตใหม่ทุกวัน</p><div class="list">${all.map(a=>`<a class="glass item" href="#${esc(a.id)}">${a.img?`<img src="${esc(a.img)}" alt="${esc(a.title)}" loading="lazy">`:'<img alt="">'}<div><small>${esc(a.tag)} · ${fd(a.date)}</small><h2>${esc(a.title)}</h2>${auth(a)}<p>${esc(a.summary)}</p><span class="more">อ่านต่อ <i class="fa-solid fa-chevron-right"></i></span></div></a>`).join('')}</div>`}}
+addEventListener('hashchange',route);route();
+
+/* ===== ระบบเผยแพร่ผ่าน GitHub ===== */
+const LS='ihd_pub',MARK='/*ARTICLES'+'_START*/';
+const seg=location.pathname.split('/')[1]||'';const host=location.hostname.endsWith('github.io')?{o:location.hostname.split('.')[0],r:(seg&&!seg.includes('.'))?seg:location.hostname}:{o:'',r:''};
+const file=location.pathname.split('/').pop()||'articles.html';
+const sv=JSON.parse(localStorage.getItem(LS)||'{}');
+$('o').value=sv.o||host.o;$('r').value=sv.r||host.r;$('b').value=sv.b||'main';$('k').value=sv.k||'';$('fp').value=sv.fp||(file.endsWith('.html')?file:'articles.html');
+const p2=n=>String(n).padStart(2,'0'),now=new Date();
+$('d').value=`${now.getFullYear()}-${p2(now.getMonth()+1)}-${p2(now.getDate())}`;
+const AV=JSON.parse(localStorage.getItem('ihd_av')||'{}');
+$('an').value=AV.name||'';
+if(AV.avatar){$('pv').src=AV.avatar;$('pv').style.display='block';$('pvt').textContent='รูปล่าสุดที่ใช้ (เลือกไฟล์ใหม่เพื่อเปลี่ยน)'}
+$('av').onchange=()=>{const f=$('av').files[0];if(f){$('pv').src=URL.createObjectURL(f);$('pv').style.display='block';$('pvt').textContent='รูปใหม่สำหรับบทความนี้'}};
+const sq=f=>new Promise((ok,no)=>{const im=new Image();im.onload=()=>{const s=Math.min(im.width,im.height),c=document.createElement('canvas');c.width=c.height=320;c.getContext('2d').drawImage(im,(im.width-s)/2,(im.height-s)/2,s,s,0,0,320,320);ok(c.toDataURL('image/jpeg',.85).split(',')[1])};im.onerror=()=>no(new Error('อ่านรูปโปรไฟล์ไม่ได้'));im.src=URL.createObjectURL(f)});
+const say=(m,c)=>{const e=$('st');e.style.display='block';e.className=c;e.innerHTML=m};
+const enc=s=>{const u=new TextEncoder().encode(s);let b='';for(let i=0;i<u.length;i+=8192)b+=String.fromCharCode.apply(null,u.subarray(i,i+8192));return btoa(b)};
+const dec=b=>new TextDecoder().decode(Uint8Array.from(atob(b.replace(/\n/g,'')),c=>c.charCodeAt(0)));
+const shrink=f=>new Promise((ok,no)=>{const im=new Image();im.onload=()=>{const k=Math.min(1,1280/im.width),c=document.createElement('canvas');c.width=Math.round(im.width*k);c.height=Math.round(im.height*k);c.getContext('2d').drawImage(im,0,0,c.width,c.height);ok(c.toDataURL('image/jpeg',.82).split(',')[1])};im.onerror=()=>no(new Error('อ่านไฟล์รูปไม่ได้'));im.src=URL.createObjectURL(f)});
+let C={};
+const api=async(path,opt={})=>{const put=opt.method==='PUT';const r=await fetch(`https://api.github.com/repos/${C.o}/${C.r}/contents/${path}`+(put?'':`?ref=${encodeURIComponent(C.b)}&_=${Date.now()}`),{...opt,headers:{Accept:'application/vnd.github+json',Authorization:'Bearer '+C.k,'Content-Type':'application/json'}});
+ if(!r.ok){let m='';try{m=(await r.json()).message}catch(e){}throw new Error(r.status+' '+m)}return r.json()};
+$('go').onclick=async()=>{
+ C={o:$('o').value.trim(),r:$('r').value.trim(),b:$('b').value.trim()||'main',k:$('k').value.trim(),fp:$('fp').value.trim()||'articles.html'};
+ const title=$('t').value.trim(),text=$('x').value.trim();
+ if(!C.o||!C.r||!C.k){say('กรุณากรอกการตั้งค่า GitHub ให้ครบ','bad');return}
+ if(!title||!text){say('กรุณากรอกหัวข้อและเนื้อหา','bad');return}
+ localStorage.setItem(LS,JSON.stringify(C));
+ const btn=$('go');btn.disabled=true;
+ try{
+  const n=new Date(),date=$('d').value,id=`${date}-${p2(n.getHours())}${p2(n.getMinutes())}${p2(n.getSeconds())}`;
+  let img=$('u').value.trim();
+  if($('f').files[0]){say('กำลังอัปโหลดรูป...','wt');const path=`images/articles/${id}.jpg`;
+   await api(path,{method:'PUT',body:JSON.stringify({message:'เพิ่มรูปบทความ '+id,content:await shrink($('f').files[0]),branch:C.b})});img=path}
+  let avatar=AV.avatar||'';
+  if($('av').files[0]){say('กำลังอัปโหลดรูปโปรไฟล์...','wt');const ap=`images/avatars/${id}.jpg`;
+   await api(ap,{method:'PUT',body:JSON.stringify({message:'เพิ่มรูปโปรไฟล์ '+id,content:await sq($('av').files[0]),branch:C.b})});avatar=ap}
+  const author=$('an').value.trim();
+  AV.name=author;AV.avatar=avatar;localStorage.setItem('ihd_av',JSON.stringify(AV));
+  if($('na').checked)avatar='';
+  say('กำลังบันทึกบทความ...','wt');
+  const cur=await api(C.fp),txt=dec(cur.content);
+  if(!txt.includes(MARK))throw new Error('ไม่พบเครื่องหมายเริ่มต้นบทความในไฟล์ '+C.fp);
+  const o={id,date,tag:$('g').value.trim()||'ทั่วไป',title,summary:$('s').value.trim()||text.replace(/[#\-\n]+/g,' ').slice(0,110),img,author,avatar,body:text};
+  const out=txt.replace(MARK,()=>MARK+'\n'+JSON.stringify(o,null,1)+',');
+  await api(C.fp,{method:'PUT',body:JSON.stringify({message:'เผยแพร่บทความ: '+title,content:enc(out),sha:cur.sha,branch:C.b})});
+  say(`เผยแพร่สำเร็จ! เว็บไซต์จะอัปเดตภายใน 1–2 นาที แล้วดูบทความได้ที่ <a href="${C.fp}#${id}">ลิงก์นี้</a>`,'okk');
+  ['t','g','s','u','x','f','av'].forEach(i=>$(i).value='');$('na').checked=false;if(AV.avatar){$('pv').src=AV.avatar;$('pv').style.display='block';$('pvt').textContent='รูปล่าสุดที่ใช้ (เลือกไฟล์ใหม่เพื่อเปลี่ยน)'}
+ }catch(e){say('เกิดข้อผิดพลาด: '+esc(e.message)+'<br>ตรวจสอบชื่อบัญชี ชื่อ Repository Branch ชื่อไฟล์ และสิทธิ์ของ Token อีกครั้ง','bad')}
+ btn.disabled=false};
+</script>
 </body>
 </html>
